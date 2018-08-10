@@ -1,0 +1,50 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Push Notification API 
+This document describes push notification API for specific-user and resources provided by Dimas.#
+
+# Authentication
+This API use key when user login to their application as headers.
+
+## specific-user [/notification/v2/specific-user]
+
+### Push notification for specific user [POST]
+
++ Request 
+    + Headers
+
+            Authorization: Basic SomeTokenValue
+            Content-Type: application/json
+    
+    + Attributes (object) 
+        + placeholder (array[data], fixed-type)
+
++ Response 200 (application/json)
+    + Attributes (ApiResponse)
+       
++ Response 401
+    + Headers
+
+            WWW-Authenticate: Basic realm="protected"
+        
+#Data Structure
+
+## data (object)
+
+### Properties
++ userId: `88888888888` (string, required) - Phone Number
++ category: `SURVEY` (string, required) - Category of Notification
++ additional_text: `https://www.google.com` (string, optional) - URL
++ short_message: `Testing untuk url link` (string, optional) - Header in Pop Up Message
++ full_detail_message: `Testing push notification untuk survey` (string, optional) - Mesage in inbox
++ title: `Testing push notification` (string, optional) - Tittle mesage in inbox
++ image_url: `imageurl` (string, optional) - URL for image
++ source: `clientzone` (string, required) - Requester
+
+## ApiResponse (object)
+
+### Properties
++ status: `SUCCESS` (string, required) - Status
++ message: `SUCCESS` (string, required) - Message
+  

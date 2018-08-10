@@ -1,0 +1,40 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# MyPromo API
+This document describes the MyPromo API and resources provided by Dimas. 
+
+## myPromo [/my/Promo]
+
+### List Of Banner [POST] 
+
++ Request (application/json;charset=UTF-8)
+    + Attributes (object)
+        + homePage: `0` (string, required)
+        + os: `Android` (string, required)
+                     
++ Response 200 (application/json;charset=UTF-8)
+    + Attributes (object)
+        + data (array[Banner], fixed-type, required)
+
+# Data Structure
+
+## Banner (object)
++ offer: `MD` (string, required) - types of promo that will be show in mobile apps
+    + `MD` - My Dream
+    + `MPF` - Flexi Fast
+    + `OPF` - DONA
+    + `CC` - Credit Card
+    + `GE` - General
+    + `OL` - Online
++ bannerPromo: `https://www.homecredit.co.id/banner_md_1.jpg` (string, optional) - image of promo that will be show in promo page or home page
++ bannerDetail: `https://www.homecredit.co.id/banner_md_2.jpg` (string, optional) - image of promo that will be show if user click promo from promo page or home page
++ tittle: `My Dream` (string, optional) - tittle of promo. it will be show in promo page detail
++ description: `Wujudkan mimpi mu sekarang juga` (string, optional) - description of promo. it will be show in promo page detail
++ link: `https://www.homecredit.co.id/my_dream` (string, optional) - URL of promo. It will direct to site for give more information to user
++ template: `1` (number, required) - types of template
+    + `1` - Template number 1 in mobile apps
+    + `2` - Template number 2 in mobile apps
+    + `3` - Template number 3 in mobile apps
++ startDate: `01-JANUARY-2018` (string, required) - Start date of the banner will be sent to user
++ endDate: `31-DECEMBER-2018` (string, optional) - Last date of the banner will be sent to user

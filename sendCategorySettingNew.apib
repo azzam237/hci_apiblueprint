@@ -1,0 +1,46 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Push Notification API 
+This document describes Notification Setting (Turn on/off) and resources provided by Dimas.#
+
+# Authentication
+This API use key when user login to their application as headers.
+
+## Send Category Setting New [sendCategorySettingNew]
+
+### Push notification for bulk CUID [POST]
+
++ Request 
+    + Headers
+
+            Authorization: Basic SomeTokenValue
+            Content-Type: application/json
+    
+    + Attributes (object) 
+        + Attributes (SettingRequest)
+
++ Response 200 (application/json)
+    + Attributes (ApiResponse)
+       
++ Response 401
+    + Headers
+
+            WWW-Authenticate: Basic realm="protected"
+        
+#Data Structure
+
+## SettingRequest (object)
+
+### Properties
++ typeStatus: `True` (string, required) - Category of Notification
+
+
+
+
+## ApiResponse (object)
+
+### Properties
++ status: `SUCCESS` (string, required) - Status
++ message: `SUCCESS` (string, required) - Message
+  

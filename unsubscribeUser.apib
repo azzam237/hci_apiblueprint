@@ -1,0 +1,45 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Push Notification API 
+This document describes push notification API for Unsubscribe Push Notification for Logged Out User provided by Dimas.#
+
+# Authentication
+This API use key when user login to their application as headers.
+
+## unsubscribeUser [/portal-api-r21/unsubscribeUser]
+
+### API for Unsubscribe Push Notification for Logged Out User [POST]
+
++ Request 
+    + Headers
+
+            Authorization: Basic SomeTokenValue
+            Content-Type: application/json
+    
+    + Attributes (object) 
+        + placeholder (array[data], fixed-type)
+
++ Response 200 (application/json)
+    + Attributes (ApiResponse)
+       
++ Response 401
+    + Headers
+
+            WWW-Authenticate: Basic realm="protected"
+        
+#Data Structure
+
+## data (object)
+
+### Properties
++ deviceToken: `e2FVxgOSG7U:APA91bExdkNz2WDaMtmrMvRDW0P4fiiitWQ...` (string, required) - Device Token
++ os: `Android`(string, required) - OS
+
+
+## ApiResponse (object)
+
+### Properties
++ status: `SUCCESS` (string, required) - Status
++ message: `SUCCESS` (string, required) - Message
+  

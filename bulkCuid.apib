@@ -1,0 +1,53 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Push Notification API 
+This document describes push notification API for bulk cuid and resources provided by Dimas.#
+
+# Authentication
+This API use key when user login to their application as headers.
+
+## bulk-cuid [/portal-api-r21/pushNotifNew]
+
+### Push notification for bulk CUID [POST]
+
++ Request 
+    + Headers
+
+            Authorization: Basic SomeTokenValue
+            Content-Type: application/json
+    
+    + Attributes (object) 
+        + placeholder (array[data], fixed-type)
+
++ Response 200 (application/json)
+    + Attributes (ApiResponse)
+       
++ Response 401
+    + Headers
+
+            WWW-Authenticate: Basic realm="protected"
+        
+#Data Structure
+
+## data (object)
+
+### Properties
++ userId: `88888888888` (string, required) - Phone Number
++ category: `PROMO_AND_OFFER` (string, required) - Category of Notification
++ department: `MARKETING` (string, required) - Departement name that requested Push Notif to be sent
++ insertedDtime: `1496405397615` (date, optional) - Date time of when push notif is requested/inserted to table
++ deliveryDtime: `1496405397615` (date, optional) - Date time of when push notif wanted to be delivered
++ title: `Testing push notification` (string, optional) - Tittle mesage in inbox
++ additional_text: `https://www.google.com` (string, optional) - URL
++ short_message: `Testing untuk url link` (string, optional) - Header in Pop Up Message
++ full_detail_message: `Testing push notification untuk survey` (string, optional) - Mesage in inbox
++ image_url: `imageurl` (string, optional) - URL for image
+
+
+## ApiResponse (object)
+
+### Properties
++ status: `SUCCESS` (string, required) - Status
++ message: `SUCCESS` (string, required) - Message
+  
